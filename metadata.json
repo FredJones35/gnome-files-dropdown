@@ -1,0 +1,8 @@
+{
+  "uuid": "files-dropdown@fredjones35.github.io",
+  "name": "Files Dropdown",
+  "description": "Adds a folder icon to the top bar. Clicking it drops a Files (Nautilus) window down under the bar, so you can drag files straight into the app you are using. Clicking anywhere else closes it.",
+  "shell-version": ["48"],
+  "url": "https://github.com/FredJones35/gnome-files-dropdown",
+  "version": 1
+}
