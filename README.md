@@ -4,6 +4,8 @@ A GNOME Shell extension that puts a folder icon in the top bar. Click it and a
 small Files (Nautilus) window drops down right under the bar, on top of
 everything else. Click anywhere outside it and it closes.
 
+![Files Dropdown demo](media/demo.gif)
+
 It is made for one job: getting a file into the app you are already using
 without shuffling windows around. Want to upload a file to a website? Click the
 folder icon, drag the file onto the browser behind it, done. No minimizing the
