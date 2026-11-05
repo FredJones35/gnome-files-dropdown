@@ -17,8 +17,8 @@ browser, opening Files, and tiling the two side by side first.
   your home folder, and stays above other windows.
 - **Drag a file** from it onto any window behind it (a browser upload area, a
   chat app, an editor…).
-- **Click any other window**, or click the folder icon again → the Files window
-  closes.
+- **Click any other window, the desktop or the top bar**, or click the folder
+  icon again → the Files window closes.
 - Dialogs that belong to that window (Rename, Properties, …) do not close it.
 
 It uses a real Nautilus window rather than a menu in the top bar, because GNOME
@@ -68,9 +68,6 @@ gnome-extensions uninstall files-dropdown@fredjones35.github.io
 
 ## Known limitations
 
-- The window closes when focus moves to another window. Clicking an empty
-  desktop with no windows on it does not move focus, so the window stays open;
-  click the folder icon to close it.
 - Each time it opens, it starts again in your home folder.
 - Only GNOME Shell 48 is tested and listed in `metadata.json`.
 
@@ -106,8 +103,8 @@ küçültmenize, Dosyalar'ı açmanıza, iki pencereyi yan yana dizmenize gerek 
   diğer pencerelerin üstünde duran bir Dosyalar penceresi açılır.
 - **Dosyayı sürükleyin** ve arkadaki herhangi bir pencereye bırakın (tarayıcıdaki
   yükleme alanı, mesajlaşma uygulaması, düzenleyici…).
-- **Başka bir pencereye tıklayın** ya da klasör simgesine tekrar basın →
-  Dosyalar penceresi kapanır.
+- **Başka bir pencereye, masaüstüne ya da üst çubuğa tıklayın** veya klasör
+  simgesine tekrar basın → Dosyalar penceresi kapanır.
 - Bu pencereye ait iletişim kutuları (Yeniden Adlandır, Özellikler, …) açıkken
   pencere kapanmaz.
 
@@ -158,9 +155,6 @@ gnome-extensions uninstall files-dropdown@fredjones35.github.io
 
 ### Bilinen sınırlamalar
 
-- Pencere, odak başka bir pencereye geçince kapanır. Üzerinde hiç pencere
-  olmayan boş masaüstüne tıklamak odağı değiştirmediği için pencere açık kalır;
-  kapatmak için klasör simgesine basın.
 - Her açılışta ev klasörünüzden başlar.
 - Yalnızca GNOME Shell 48'de denendi ve `metadata.json` dosyasında yalnızca bu
   sürüm listelenmiştir.

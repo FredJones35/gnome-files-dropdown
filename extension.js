@@ -50,12 +50,20 @@ export default class FilesDropdownExtension extends Extension {
             global.display.connect('notify::focus-window',
                 () => this._onFocusChanged()),
         ];
+
+        // Clicks on the desktop background or the top bar do not move window
+        // focus, but they still reach the stage, so watch for them there.
+        this._stageEventId = global.stage.connect('captured-event',
+            (_stage, event) => this._onStageEvent(event));
     }
 
     disable() {
         for (const id of this._displaySignals)
             global.display.disconnect(id);
         this._displaySignals = [];
+
+        global.stage.disconnect(this._stageEventId);
+        this._stageEventId = 0;
 
         if (this._spawnTimeoutId) {
             GLib.source_remove(this._spawnTimeoutId);
@@ -200,6 +208,27 @@ export default class FilesDropdownExtension extends Extension {
                 return true;
         }
         return false;
+    }
+
+    _onStageEvent(event) {
+        const type = event.type();
+        if (type !== Clutter.EventType.BUTTON_PRESS &&
+            type !== Clutter.EventType.TOUCH_BEGIN)
+            return Clutter.EVENT_PROPAGATE;
+
+        const win = this._window;
+        if (!win || win.minimized)
+            return Clutter.EVENT_PROPAGATE;
+
+        // The panel button toggles the window itself.
+        const source = global.stage.get_event_actor(event);
+        const windowActor = win.get_compositor_private();
+        if (source && (this._button.contains(source) ||
+                       windowActor?.contains(source)))
+            return Clutter.EVENT_PROPAGATE;
+
+        this._close();
+        return Clutter.EVENT_PROPAGATE;
     }
 
     _onFocusChanged() {
